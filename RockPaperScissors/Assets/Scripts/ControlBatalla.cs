@@ -9,7 +9,9 @@ public class Controlbatalla : MonoBehaviour
     public GameObject TiePanel;
     public int PlayerLife;
     public int EnemyLife;
-    
+    public Image CardPanel;
+    public GameObject CardPrefab; 
+
 
 
     // Start is called before the first frame update
@@ -22,9 +24,10 @@ public class Controlbatalla : MonoBehaviour
         CardDraw();
         PlayerLife = 20; 
         EnemyLife = 20;
-       
-       
-        
+        GameObject newCard = Instantiate(CardPrefab, CardPanel.transform);
+
+
+
 
     }
 
@@ -35,7 +38,7 @@ public class Controlbatalla : MonoBehaviour
 
     }
 
-    void Combat(Card PlayerCard, Card EnemyCard, float DamageMultiplier, float DefenseMultiplier, float CombatEffects)
+    void Combat(Card PlayerCard, Card EnemyCard, float DamageMultiplier, float DefenseMultiplier, string CombatEffects)
     {
         if (PlayerCard.CardType == EnemyCard.CardType && (PlayerCard.CardType != "Block" || PlayerCard.CardType != "Counter"))
         {
@@ -105,6 +108,7 @@ public class Controlbatalla : MonoBehaviour
     {
         int numeroAleatorio = Random.Range(1, 5);
         Card CardDrawed = null;
+        
         switch (numeroAleatorio)
         {
             case 1:
@@ -121,15 +125,16 @@ public class Controlbatalla : MonoBehaviour
                 break;
 
         }
+       
         return CardDrawed;
         
     }
     
-    public void CardSelector(Card SelectedCard)
+    public void CardSelector(string CardType)
     {
         Card EnemyCard = null;
         EnemyCard = CardDraw();
-
+        
     }
 
 }
