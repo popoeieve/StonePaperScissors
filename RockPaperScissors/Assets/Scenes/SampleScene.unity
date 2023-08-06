@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Content: {fileID: 0}
+  m_Content: {fileID: 1954241604}
   m_Horizontal: 1
   m_Vertical: 1
   m_MovementType: 1
@@ -1316,7 +1316,7 @@ MonoBehaviour:
   TiePanel: {fileID: 1672515712}
   PlayerLife: 0
   EnemyLife: 0
-  CardPanel: {fileID: 1241416340}
+  CardPanel: {fileID: 1954241606}
   CardPrefab: {fileID: 3003063698009256625, guid: b8c36854318959d4ba667765eb2ec271, type: 3}
 --- !u!4 &1559558707
 Transform:

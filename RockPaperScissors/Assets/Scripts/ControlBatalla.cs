@@ -24,7 +24,7 @@ public class Controlbatalla : MonoBehaviour
         CardDraw();
         PlayerLife = 20; 
         EnemyLife = 20;
-        GameObject newCard = Instantiate(CardPrefab, CardPanel.transform);
+        
 
 
 
@@ -125,7 +125,7 @@ public class Controlbatalla : MonoBehaviour
                 break;
 
         }
-       
+        GameObject newCard = Instantiate(CardPrefab, CardPanel.transform);
         return CardDrawed;
         
     }
