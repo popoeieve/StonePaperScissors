@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.SceneManagement; 
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,12 +14,16 @@ public class Controlbatalla : MonoBehaviour
     public GameObject CardPrefab;
     public Text PlayerLifeCounter;
     public Text EnemyLifeCounter;
+    public Card LastCardDrawed;
+    public Text EndBatlleText;
+    public GameObject EndBattlePanel;
 
 
 
     // Start is called before the first frame update
     void Start()
     {  
+        LastCardDrawed = null;
         CardDraw();
         CardDraw();
         CardDraw();
@@ -37,6 +42,7 @@ public class Controlbatalla : MonoBehaviour
 
     void Combat(Card PlayerCard, Card EnemyCard)
     {
+        LastCardDrawed = PlayerCard; 
         Debug.Log("Se hace combate");
         if (PlayerCard.CardType == EnemyCard.CardType && (PlayerCard.CardType != "Block" || PlayerCard.CardType != "Counter"))
         {
@@ -74,6 +80,10 @@ public class Controlbatalla : MonoBehaviour
         {
             PlayerLife = PlayerLife - PlayerCard.CardDamage;
         }
+        if (PlayerLife  <= 0 || EnemyLife <= 0)
+        {
+            EndBattle();
+        }
     }
     
     public void TieSelection ()
@@ -83,10 +93,12 @@ public class Controlbatalla : MonoBehaviour
         {           
             case 1:
                 //Ganas
+                EnemyLife = EnemyLife - LastCardDrawed.CardDamage;
                 Debug.Log("win");
                 break;
             case 2:
                 //Pierdes
+                PlayerLife = PlayerLife - LastCardDrawed.CardDamage; 
                 Debug.Log("lose");
                 break;
             case 3:
@@ -125,17 +137,32 @@ public class Controlbatalla : MonoBehaviour
         }
         newCard.transform.GetChild(2).GetComponent<Text>().text = CardDrawed.CardType;
         newCard.GetComponent<Button>().onClick.AddListener(delegate{Combat(CardDrawed,CardDraw());});
-        
+         
         return CardDrawed;
         
     }
-    
-    public void CardSelector(string CardType)
+    public void EndBattle()
     {
-        Card EnemyCard = null;
-        EnemyCard = CardDraw();
-        
+        Debug.Log("d");
+        EndBattlePanel.SetActive(true);
+        if ( PlayerLife >= 0)
+        {
+            EndBatlleText.text = "VICTORY";
+        }
+        else
+        {
+            EndBatlleText.text = "DERROTA";
+        }
+
+        //Se crea un panel con mensaje que has ganado o perdido 
     }
+    public void ExitBattle() 
+    {
+        SceneManager.LoadScene("PlayerScene");
+
+    }
+    
+   
 
 }
 public class Card: MonoBehaviour
