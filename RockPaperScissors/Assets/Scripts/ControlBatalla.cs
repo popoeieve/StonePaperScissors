@@ -25,6 +25,7 @@ public class Controlbatalla : MonoBehaviour
         PlayerLife = 20; 
         EnemyLife = 20;
         
+        
 
 
 
@@ -38,7 +39,7 @@ public class Controlbatalla : MonoBehaviour
 
     }
 
-    void Combat(Card PlayerCard, Card EnemyCard, float DamageMultiplier, float DefenseMultiplier, string CombatEffects)
+    void Combat(Card PlayerCard, Card EnemyCard)
     {
         if (PlayerCard.CardType == EnemyCard.CardType && (PlayerCard.CardType != "Block" || PlayerCard.CardType != "Counter"))
         {
@@ -80,6 +81,7 @@ public class Controlbatalla : MonoBehaviour
             // Devueve el daño de Heavy
         }
     }
+    
     public void TieSelection ()
     {
         int numeroAleatorio = Random.Range(1, 4);
@@ -126,6 +128,13 @@ public class Controlbatalla : MonoBehaviour
 
         }
         GameObject newCard = Instantiate(CardPrefab, CardPanel.transform);
+        if (CardDrawed.CardDamage != 0)
+        {
+            newCard.transform.GetChild(1).GetComponent<Text>().text = CardDrawed.CardDamage + "";
+        }
+        newCard.transform.GetChild(2).GetComponent<Text>().text = CardDrawed.CardType;
+        newCard.GetComponent<Button>().onClick.AddListener(delegate{Combat(CardDrawed,CardDraw());});
+        
         return CardDrawed;
         
     }
