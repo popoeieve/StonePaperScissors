@@ -10,75 +10,69 @@ public class Controlbatalla : MonoBehaviour
     public int PlayerLife;
     public int EnemyLife;
     public Image CardPanel;
-    public GameObject CardPrefab; 
+    public GameObject CardPrefab;
+    public Text PlayerLifeCounter;
+    public Text EnemyLifeCounter;
 
 
 
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {  
         CardDraw();
         CardDraw();
         CardDraw();
         CardDraw();
-        PlayerLife = 20; 
+        PlayerLife = 20;
         EnemyLife = 20;
-        
-        
-
-
-
-
     }
 
 
     // Update is called once per frame
     void Update()
     {
-
+        PlayerLifeCounter.text = PlayerLife+"";
+        EnemyLifeCounter.text = EnemyLife+"";
     }
 
     void Combat(Card PlayerCard, Card EnemyCard)
     {
+        Debug.Log("Se hace combate");
         if (PlayerCard.CardType == EnemyCard.CardType && (PlayerCard.CardType != "Block" || PlayerCard.CardType != "Counter"))
         {
-            TiePanel.SetActive(true);
-
-
-            
+            TiePanel.SetActive(true);      
         }
         else if (PlayerCard.CardType == "Slash" && (EnemyCard.CardType == "Counter" || EnemyCard.CardType == "Heavy"))
         {
-            // Hace Daño al enemigo
+            EnemyLife = EnemyLife - PlayerCard.CardDamage;
         }
         else if (PlayerCard.CardType == "Heavy" && EnemyCard.CardType == "Block")
         {
-            // Hace daño heavy a block
+            EnemyLife = EnemyLife - PlayerCard.CardDamage;
         }
         else if (PlayerCard.CardType == "Block" && PlayerCard.CardType == "Slash")
         {
-            // El enemigo pierde el turno
+            // Causa estado Bloqueado en el Enemigo
         }
         else if (PlayerCard.CardType == "Counter" && EnemyCard.CardType == "Heavy")
         {
-            // Devueve el daño de Heavy
+            EnemyLife = EnemyLife - EnemyCard.CardDamage;
         }
         else if (EnemyCard.CardType == "Slash" && (PlayerCard.CardType == "Counter" || PlayerCard.CardType == "Heavy"))
         {
-            // Hace Daño al enemigo
+            PlayerLife = PlayerLife - EnemyCard.CardDamage;
         }
         else if (EnemyCard.CardType == "Heavy" && PlayerCard.CardType == "Block")
         {
-            // Hace daño heavy a block
+            PlayerLife = PlayerLife - EnemyCard.CardDamage;
         }
         else if (EnemyCard.CardType == "Block" && PlayerCard.CardType == "Slash")
         {
-            // El enemigo pierde el turno
+            // Causa estado Bloqueado en el Jugador
         }
         else if (EnemyCard.CardType == "Counter" && PlayerCard.CardType == "Heavy")
         {
-            // Devueve el daño de Heavy
+            PlayerLife = PlayerLife - PlayerCard.CardDamage;
         }
     }
     
@@ -86,24 +80,21 @@ public class Controlbatalla : MonoBehaviour
     {
         int numeroAleatorio = Random.Range(1, 4);
         switch (numeroAleatorio)
-        {
-           
+        {           
             case 1:
                 //Ganas
                 Debug.Log("win");
                 break;
             case 2:
                 //Pierdes
-                Debug.Log("pierdes");
+                Debug.Log("lose");
                 break;
             case 3:
                 //Empatas
                 Debug.Log("tie");
-
-                break;
-           
+                break;           
         }
-      
+        TiePanel.SetActive(false);
     }
   
     public Card CardDraw()
