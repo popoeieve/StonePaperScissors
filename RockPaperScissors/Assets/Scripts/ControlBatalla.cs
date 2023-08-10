@@ -44,7 +44,22 @@ public class Controlbatalla : MonoBehaviour
 
     void Combat(Card PlayerCard, Card EnemyCard)
     {
-        Hero.GetComponent<Animator>().SetTrigger("CardSelected");
+        if (PlayerCard.CardType == "Block") 
+        {
+            Hero.GetComponent<Animator>().SetTrigger("BlockedAttack");
+        }
+        if (PlayerCard.CardType == "Slash")
+        {
+            Hero.GetComponent<Animator>().SetTrigger("SlashAttack");
+        }
+        if (PlayerCard.CardType == "Heavy")
+        {
+            Hero.GetComponent<Animator>().SetTrigger("HeavyAttack");
+        }
+        if (PlayerCard.CardType == "Counter")
+        {
+            Hero.GetComponent<Animator>().SetTrigger("CounterAttack");
+        }
         LastCardDrawed = PlayerCard; 
         Debug.Log("Se hace combate");
         if (PlayerCard.CardType == EnemyCard.CardType && (PlayerCard.CardType != "Block" || PlayerCard.CardType != "Counter"))
@@ -145,7 +160,6 @@ public class Controlbatalla : MonoBehaviour
         newCard.transform.GetChild(2).GetComponent<Text>().text = CardDrawed.CardType;
         newCard.transform.GetChild(0).GetComponent<Image>().sprite = BlockImageSprite;
         newCard.GetComponent<Button>().onClick.AddListener(delegate{Combat(CardDrawed,CardDraw());});
-         
         return CardDrawed;
         
     }
