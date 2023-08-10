@@ -17,6 +17,7 @@ public class Controlbatalla : MonoBehaviour
     public Card LastCardDrawed;
     public Text EndBatlleText;
     public GameObject EndBattlePanel;
+    public GameObject Hero;
 
 
 
@@ -37,11 +38,12 @@ public class Controlbatalla : MonoBehaviour
     void Update()
     {
         PlayerLifeCounter.text = PlayerLife+"";
-        EnemyLifeCounter.text = EnemyLife+"";
+        EnemyLifeCounter.text = EnemyLife+"";        
     }
 
     void Combat(Card PlayerCard, Card EnemyCard)
     {
+        Hero.GetComponent<Animator>().SetTrigger("CardSelected");
         LastCardDrawed = PlayerCard; 
         Debug.Log("Se hace combate");
         if (PlayerCard.CardType == EnemyCard.CardType && (PlayerCard.CardType != "Block" || PlayerCard.CardType != "Counter"))
@@ -106,6 +108,10 @@ public class Controlbatalla : MonoBehaviour
                 Debug.Log("tie");
                 break;           
         }
+        if (PlayerLife <= 0 || EnemyLife <= 0)
+        {
+            EndBattle();
+        }
         TiePanel.SetActive(false);
     }
   
@@ -145,7 +151,7 @@ public class Controlbatalla : MonoBehaviour
     {
         Debug.Log("d");
         EndBattlePanel.SetActive(true);
-        if ( PlayerLife >= 0)
+        if ( PlayerLife > 0)
         {
             EndBatlleText.text = "VICTORY";
         }
