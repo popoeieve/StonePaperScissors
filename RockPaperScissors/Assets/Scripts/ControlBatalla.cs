@@ -18,6 +18,7 @@ public class Controlbatalla : MonoBehaviour
     public Text EndBatlleText;
     public GameObject EndBattlePanel;
     public GameObject Hero;
+    public Sprite BlockImageSprite;
 
 
 
@@ -142,6 +143,7 @@ public class Controlbatalla : MonoBehaviour
             newCard.transform.GetChild(1).GetComponent<Text>().text = CardDrawed.CardDamage + "";
         }
         newCard.transform.GetChild(2).GetComponent<Text>().text = CardDrawed.CardType;
+        newCard.transform.GetChild(0).GetComponent<Image>().sprite = BlockImageSprite;
         newCard.GetComponent<Button>().onClick.AddListener(delegate{Combat(CardDrawed,CardDraw());});
          
         return CardDrawed;
