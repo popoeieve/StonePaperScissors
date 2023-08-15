@@ -19,6 +19,10 @@ public class Controlbatalla : MonoBehaviour
     public GameObject EndBattlePanel;
     public GameObject Hero;
     public Sprite BlockImageSprite;
+    public Sprite CounterImageSprite;
+    public Sprite HeavyImageSprite;
+    public Sprite SlashImageSprite;
+
 
 
 
@@ -42,7 +46,7 @@ public class Controlbatalla : MonoBehaviour
         EnemyLifeCounter.text = EnemyLife+"";        
     }
 
-    void Combat(Card PlayerCard, Card EnemyCard)
+    void Combat(Card PlayerCard, Card EnemyCard,GameObject newCard)
     {
         if (PlayerCard.CardType == "Block") 
         {
@@ -102,6 +106,7 @@ public class Controlbatalla : MonoBehaviour
         {
             EndBattle();
         }
+        Destroy(newCard);
     }
     
     public void TieSelection ()
@@ -158,8 +163,24 @@ public class Controlbatalla : MonoBehaviour
             newCard.transform.GetChild(1).GetComponent<Text>().text = CardDrawed.CardDamage + "";
         }
         newCard.transform.GetChild(2).GetComponent<Text>().text = CardDrawed.CardType;
-        newCard.transform.GetChild(0).GetComponent<Image>().sprite = BlockImageSprite;
-        newCard.GetComponent<Button>().onClick.AddListener(delegate{Combat(CardDrawed,CardDraw());});
+
+        if (CardDrawed.CardType == "Block")
+        {
+            newCard.transform.GetChild(0).GetComponent<Image>().sprite = BlockImageSprite;
+        }
+        else if (CardDrawed.CardType == "Counter") 
+        {
+            newCard.transform.GetChild(0).GetComponent<Image>().sprite = CounterImageSprite;
+        }
+        else if (CardDrawed.CardType == "Heavy")
+        {
+            newCard.transform.GetChild(0).GetComponent<Image>().sprite = HeavyImageSprite;
+        }
+        else
+        {
+            newCard.transform.GetChild(0).GetComponent<Image>().sprite = SlashImageSprite;
+        }
+        newCard.GetComponent<Button>().onClick.AddListener(delegate{Combat(CardDrawed,CardDraw(),newCard);});
         return CardDrawed;
         
     }
@@ -183,8 +204,6 @@ public class Controlbatalla : MonoBehaviour
         SceneManager.LoadScene("PlayerScene");
 
     }
-    
-   
 
 }
 public class Card: MonoBehaviour
