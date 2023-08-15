@@ -763,6 +763,7 @@ GameObject:
   - component: {fileID: 859438724}
   - component: {fileID: 859438723}
   - component: {fileID: 859438722}
+  - component: {fileID: 859438725}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -866,8 +867,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 077ee9ca977ab7c4686344f6890506ce, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -884,6 +885,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859438720}
   m_CullTransparentMesh: 1
+--- !u!114 &859438725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859438720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &968010312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1094,7 @@ GameObject:
   - component: {fileID: 1103723514}
   - component: {fileID: 1103723516}
   - component: {fileID: 1103723515}
+  - component: {fileID: 1103723517}
   m_Layer: 5
   m_Name: EnemyLife
   m_TagString: Untagged
@@ -1146,6 +1163,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103723513}
   m_CullTransparentMesh: 1
+--- !u!114 &1103723517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103723513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1241416337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,6 +1298,7 @@ GameObject:
   - component: {fileID: 1384434741}
   - component: {fileID: 1384434740}
   - component: {fileID: 1384434739}
+  - component: {fileID: 1384434742}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1369,8 +1402,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: fd08c26f9f01b32489b77b210120d370, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1387,6 +1420,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384434737}
   m_CullTransparentMesh: 1
+--- !u!114 &1384434742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384434737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1501573502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,6 +1612,9 @@ MonoBehaviour:
   EndBattlePanel: {fileID: 968010312}
   Hero: {fileID: 990127997}
   BlockImageSprite: {fileID: 21300000, guid: bf7e0044775e9904bb5d705f34b1c0e2, type: 3}
+  CounterImageSprite: {fileID: 21300000, guid: a7dd0237b7a78124fa42b131548a4099, type: 3}
+  HeavyImageSprite: {fileID: 21300000, guid: 4e7226a017c13fc448c52a94e65ea9dc, type: 3}
+  SlashImageSprite: {fileID: 21300000, guid: cc886890f4dad2f40b410b18bc8a67cc, type: 3}
 --- !u!4 &1559558707
 Transform:
   m_ObjectHideFlags: 0
@@ -1590,6 +1641,7 @@ GameObject:
   - component: {fileID: 1584694735}
   - component: {fileID: 1584694736}
   - component: {fileID: 1584694737}
+  - component: {fileID: 1584694738}
   m_Layer: 5
   m_Name: PlayerLife
   m_TagString: Untagged
@@ -1658,6 +1710,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1
+--- !u!114 &1584694738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584694734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.04045032, g: 0.1485732, b: 0.9528302, a: 0.5}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1672515712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,6 +1815,7 @@ GameObject:
   - component: {fileID: 1700739762}
   - component: {fileID: 1700739761}
   - component: {fileID: 1700739760}
+  - component: {fileID: 1700739763}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1851,8 +1919,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 3c8c6cf3596c671429dd3f619168396e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1869,6 +1937,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700739758}
   m_CullTransparentMesh: 1
+--- !u!114 &1700739763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700739758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1841796562
 GameObject:
   m_ObjectHideFlags: 0
