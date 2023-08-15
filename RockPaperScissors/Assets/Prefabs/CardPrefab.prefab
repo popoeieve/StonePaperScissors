@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8725218829464027646}
   - component: {fileID: 9042542422332803126}
   - component: {fileID: 6235103965544589251}
+  - component: {fileID: 3134609274438912631}
   m_Layer: 5
   m_Name: CardPrefab
   m_TagString: Untagged
@@ -140,6 +141,21 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &3134609274438912631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003063698009256625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.7882353}
+  m_EffectDistance: {x: 15, y: -15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3888039677586547387
 GameObject:
   m_ObjectHideFlags: 0
