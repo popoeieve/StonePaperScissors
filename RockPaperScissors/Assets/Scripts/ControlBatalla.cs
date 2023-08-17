@@ -22,13 +22,16 @@ public class Controlbatalla : MonoBehaviour
     public Sprite CounterImageSprite;
     public Sprite HeavyImageSprite;
     public Sprite SlashImageSprite;
+    public float Timer;
+    public Image LifeBar; 
 
 
 
 
     // Start is called before the first frame update
     void Start()
-    {  
+    {
+        
         LastCardDrawed = null;
         CardDraw();
         CardDraw();
@@ -43,70 +46,87 @@ public class Controlbatalla : MonoBehaviour
     void Update()
     {
         PlayerLifeCounter.text = PlayerLife+"";
-        EnemyLifeCounter.text = EnemyLife+"";        
-    }
+        EnemyLifeCounter.text = EnemyLife+"";
+        Timer += Time.deltaTime;
+        LifeBar.GetComponent<Image>().fillAmount = Timer/3.85f ;
+        if (Timer > 3.85)
+        {
+            Timer = 0;
+            TimeOver();
+            
+            
+            
+        }
+}       
 
     void Combat(Card PlayerCard, Card EnemyCard,GameObject newCard)
     {
-        if (PlayerCard.CardType == "Block") 
+        if (Timer >= 0.85f )
         {
-            Hero.GetComponent<Animator>().SetTrigger("BlockedAttack");
+            if (PlayerCard.CardType == "Block")
+            {
+                Hero.GetComponent<Animator>().SetTrigger("BlockedAttack");
+            }
+            if (PlayerCard.CardType == "Slash")
+            {
+                Hero.GetComponent<Animator>().SetTrigger("SlashAttack");
+            }
+            if (PlayerCard.CardType == "Heavy")
+            {
+                Hero.GetComponent<Animator>().SetTrigger("HeavyAttack");
+            }
+            if (PlayerCard.CardType == "Counter")
+            {
+                Hero.GetComponent<Animator>().SetTrigger("CounterAttack");
+            }
+            LastCardDrawed = PlayerCard;
+            Debug.Log("Se hace combate");
+            if (PlayerCard.CardType == EnemyCard.CardType && (PlayerCard.CardType != "Block" || PlayerCard.CardType != "Counter"))
+            {
+                TiePanel.SetActive(true);
+            }
+            else if (PlayerCard.CardType == "Slash" && (EnemyCard.CardType == "Counter" || EnemyCard.CardType == "Heavy"))
+            {
+                EnemyLife = EnemyLife - PlayerCard.CardDamage;
+            }
+            else if (PlayerCard.CardType == "Heavy" && EnemyCard.CardType == "Block")
+            {
+                EnemyLife = EnemyLife - PlayerCard.CardDamage;
+            }
+            else if (PlayerCard.CardType == "Block" && EnemyCard.CardType == "Slash")
+            {
+                EnemyLife = EnemyLife - EnemyCard.CardDamage;
+            }
+            else if (PlayerCard.CardType == "Counter" && EnemyCard.CardType == "Heavy")
+            {
+                EnemyLife = EnemyLife - EnemyCard.CardDamage;
+            }
+            else if (EnemyCard.CardType == "Slash" && (PlayerCard.CardType == "Counter" || PlayerCard.CardType == "Heavy"))
+            {
+                PlayerLife = PlayerLife - EnemyCard.CardDamage;
+            }
+            else if (EnemyCard.CardType == "Heavy" && PlayerCard.CardType == "Block")
+            {
+                PlayerLife = PlayerLife - EnemyCard.CardDamage;
+            }
+            else if (EnemyCard.CardType == "Block" && PlayerCard.CardType == "Slash")
+            {
+                PlayerLife = PlayerLife - PlayerCard.CardDamage;
+            }
+            else if (EnemyCard.CardType == "Counter" && PlayerCard.CardType == "Heavy")
+            {
+                PlayerLife = PlayerLife - PlayerCard.CardDamage;
+            }
+            if (PlayerLife <= 0 || EnemyLife <= 0)
+            {
+                EndBattle();
+            }
+            CardDraw();
+
+            Destroy(newCard);
+            Timer = 0; 
         }
-        if (PlayerCard.CardType == "Slash")
-        {
-            Hero.GetComponent<Animator>().SetTrigger("SlashAttack");
-        }
-        if (PlayerCard.CardType == "Heavy")
-        {
-            Hero.GetComponent<Animator>().SetTrigger("HeavyAttack");
-        }
-        if (PlayerCard.CardType == "Counter")
-        {
-            Hero.GetComponent<Animator>().SetTrigger("CounterAttack");
-        }
-        LastCardDrawed = PlayerCard; 
-        Debug.Log("Se hace combate");
-        if (PlayerCard.CardType == EnemyCard.CardType && (PlayerCard.CardType != "Block" || PlayerCard.CardType != "Counter"))
-        {
-            TiePanel.SetActive(true);      
-        }
-        else if (PlayerCard.CardType == "Slash" && (EnemyCard.CardType == "Counter" || EnemyCard.CardType == "Heavy"))
-        {
-            EnemyLife = EnemyLife - PlayerCard.CardDamage;
-        }
-        else if (PlayerCard.CardType == "Heavy" && EnemyCard.CardType == "Block")
-        {
-            EnemyLife = EnemyLife - PlayerCard.CardDamage;
-        }
-        else if (PlayerCard.CardType == "Block" && PlayerCard.CardType == "Slash")
-        {
-            // Causa estado Bloqueado en el Enemigo
-        }
-        else if (PlayerCard.CardType == "Counter" && EnemyCard.CardType == "Heavy")
-        {
-            EnemyLife = EnemyLife - EnemyCard.CardDamage;
-        }
-        else if (EnemyCard.CardType == "Slash" && (PlayerCard.CardType == "Counter" || PlayerCard.CardType == "Heavy"))
-        {
-            PlayerLife = PlayerLife - EnemyCard.CardDamage;
-        }
-        else if (EnemyCard.CardType == "Heavy" && PlayerCard.CardType == "Block")
-        {
-            PlayerLife = PlayerLife - EnemyCard.CardDamage;
-        }
-        else if (EnemyCard.CardType == "Block" && PlayerCard.CardType == "Slash")
-        {
-            // Causa estado Bloqueado en el Jugador
-        }
-        else if (EnemyCard.CardType == "Counter" && PlayerCard.CardType == "Heavy")
-        {
-            PlayerLife = PlayerLife - PlayerCard.CardDamage;
-        }
-        if (PlayerLife  <= 0 || EnemyLife <= 0)
-        {
-            EndBattle();
-        }
-        Destroy(newCard);
+
     }
     
     public void TieSelection ()
@@ -180,21 +200,48 @@ public class Controlbatalla : MonoBehaviour
         {
             newCard.transform.GetChild(0).GetComponent<Image>().sprite = SlashImageSprite;
         }
-        newCard.GetComponent<Button>().onClick.AddListener(delegate{Combat(CardDrawed,CardDraw(),newCard);});
+        newCard.GetComponent<Button>().onClick.AddListener(delegate{Combat(CardDrawed,CardEnemy(),newCard);});
+        
         return CardDrawed;
         
     }
+    public Card CardEnemy()
+    {
+        int numeroAleatorio = Random.Range(1, 5);
+        Card CardDrawed = null;
+
+        switch (numeroAleatorio)
+        {
+            case 1:
+                CardDrawed = new Card(5, "Slash");
+                break;
+            case 2:
+                CardDrawed = new Card(10, "Heavy");
+                break;
+            case 3:
+                CardDrawed = new Card(0, "Block");
+                break;
+            case 4:
+                CardDrawed = new Card(0, "Counter");
+                break;
+
+        }
+        return CardDrawed;
+    }
+
     public void EndBattle()
     {
         Debug.Log("d");
-        EndBattlePanel.SetActive(true);
-        if ( PlayerLife > 0)
+        
+        if ( PlayerLife <= 0)
         {
-            EndBatlleText.text = "VICTORY";
+            EndBatlleText.text = "LOSE";
+            EndBattlePanel.SetActive(true);
         }
-        else
+        else if (EnemyLife <= 0)
         {
-            EndBatlleText.text = "DERROTA";
+            EndBattlePanel.SetActive(true);
+            EndBatlleText.text = "VICTORY";
         }
 
         //Se crea un panel con mensaje que has ganado o perdido 
@@ -203,6 +250,11 @@ public class Controlbatalla : MonoBehaviour
     {
         SceneManager.LoadScene("PlayerScene");
 
+    }
+    public void TimeOver()
+    {
+        PlayerLife = PlayerLife - 5;
+        EndBattle(); 
     }
 
 }
@@ -216,4 +268,3 @@ public class Card: MonoBehaviour
         this.CardType = CardType_;
     }
 }
-
