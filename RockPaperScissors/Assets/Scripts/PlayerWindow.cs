@@ -9,6 +9,9 @@ public class PlayerWindow : MonoBehaviour
     public GameObject panelArmory;
     public GameObject panelPerks;
     private Animation anim;
+    public Text btn1f1;
+    public Button b1f2, b2f2; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +57,23 @@ public class PlayerWindow : MonoBehaviour
     public void startBattle() 
     {
         SceneManager.LoadScene("SampleScene");
+    }
+    public void ButtonCounter()
+    {
+
+        int contador = int.Parse(btn1f1.text);
+        if (contador < 5)
+        {
+            
+            contador++;
+            btn1f1.text = contador.ToString();
+        }
+        if (contador >= 5) 
+        {
+            b1f2.interactable = true;
+            b2f2.interactable = true;
+        }
+        
     }
 
 
