@@ -9,8 +9,8 @@ public class PlayerWindow : MonoBehaviour
     public GameObject panelArmory;
     public GameObject panelPerks;
     private Animation anim;
-    public Text btn1f1;
-    public Button b1f2, b2f2; 
+    public Text btn1f1, btn2f2, btn1f2, btn1f3, btn2f3, btn3f3, btn4f3, btn1f4, btn2f4, btn3f4, btn4f4;
+    public Button b1f2,b2f2,b1f3,b2f3,b3f3,b4f3,b1f4,b2f4,b3f4,b4f4;
 
 
     // Start is called before the first frame update
@@ -74,6 +74,60 @@ public class PlayerWindow : MonoBehaviour
             b2f2.interactable = true;
         }
         
+    }
+
+    public void ButtonCounterb1f2()
+    {
+
+        int contador = int.Parse(btn1f2.text);
+        if (contador < 5)
+        {
+
+            contador++;
+            btn1f2.text = contador.ToString();
+        }
+        if (contador >= 5)
+        {
+            b1f3.interactable = true;
+            b2f3.interactable = true;
+        }
+
+    }
+
+    public void ButtonCounterb2f2()
+    {
+
+        int contador = int.Parse(btn2f2.text);
+        if (contador < 5)
+        {
+
+            contador++;
+            btn2f2.text = contador.ToString();
+        }
+        if (contador >= 5)
+        {
+            b3f3.interactable = true;
+            b4f3.interactable = true;
+        }
+
+    }
+
+    public void ButtonCounterb1f3()
+    {
+
+        int contador = int.Parse(btn1f3.text);
+        if (contador < 5)
+        {
+
+            contador++;
+            btn1f3.text = contador.ToString();
+        }
+        if (contador >= 5)
+        {
+            b1f4.interactable = true;
+            b2f4.interactable = true;
+        }
+
     }
 
 

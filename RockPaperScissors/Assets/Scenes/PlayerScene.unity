@@ -280,7 +280,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 127595644}
   m_OnClick:
     m_PersistentCalls:
@@ -613,7 +613,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 198059034}
   m_OnClick:
     m_PersistentCalls:
@@ -738,7 +738,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 219652516}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb1f2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &219652516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,7 +938,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &306527277
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1005,7 +1017,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &313350064
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1092,7 +1104,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 355180701}
   m_OnClick:
     m_PersistentCalls:
@@ -1205,7 +1217,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &464183919
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1359,7 +1371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &542360168
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1639,7 +1651,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &726993075
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1797,7 +1809,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &837931688
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1876,7 +1888,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &873835316
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2096,7 +2108,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1026200915}
   m_OnClick:
     m_PersistentCalls:
@@ -2296,7 +2308,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1073561791}
   m_OnClick:
     m_PersistentCalls:
@@ -2417,7 +2429,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1119656098}
   m_OnClick:
     m_PersistentCalls:
@@ -2530,7 +2542,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &1148204697
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2609,7 +2621,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &1170390378
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3086,7 +3098,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &1504834295
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3173,11 +3185,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1512206731}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb1f3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1512206731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3419,7 +3443,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &1541915816
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3639,7 +3663,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1591240603}
   m_OnClick:
     m_PersistentCalls:
@@ -3760,7 +3784,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1639511474}
   m_OnClick:
     m_PersistentCalls:
@@ -3881,7 +3905,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1639875477}
   m_OnClick:
     m_PersistentCalls:
@@ -4239,8 +4263,26 @@ MonoBehaviour:
   panelArmory: {fileID: 1799813021}
   panelPerks: {fileID: 1277758200}
   btn1f1: {fileID: 1541915815}
+  btn2f2: {fileID: 1504834294}
+  btn1f2: {fileID: 1148204696}
+  btn1f3: {fileID: 306527276}
+  btn2f3: {fileID: 726993074}
+  btn3f3: {fileID: 1170390377}
+  btn4f3: {fileID: 464183918}
+  btn1f4: {fileID: 313350063}
+  btn2f4: {fileID: 2020335801}
+  btn3f4: {fileID: 464183918}
+  btn4f4: {fileID: 873835315}
   b1f2: {fileID: 219652515}
   b2f2: {fileID: 2138038591}
+  b1f3: {fileID: 1512206730}
+  b2f3: {fileID: 1119656097}
+  b3f3: {fileID: 355180700}
+  b4f3: {fileID: 1026200914}
+  b1f4: {fileID: 127595643}
+  b2f4: {fileID: 1591240602}
+  b3f4: {fileID: 1639875476}
+  b4f4: {fileID: 1639511473}
 --- !u!4 &2004027383
 Transform:
   m_ObjectHideFlags: 0
@@ -4326,7 +4368,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &2020335802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4497,7 +4539,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 0
 --- !u!222 &2091961098
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4721,7 +4763,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2138038592}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb2f2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2138038592
 MonoBehaviour:
   m_ObjectHideFlags: 0
