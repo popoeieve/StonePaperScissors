@@ -284,7 +284,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 127595644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb1f4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &127595644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,7 +629,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 198059034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb1f5
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &198059034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,7 +1132,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 355180701}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb3f3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &355180701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,7 +1195,7 @@ GameObject:
   - component: {fileID: 464183919}
   - component: {fileID: 464183918}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Text (Legacy)4-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2112,7 +2148,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1026200915}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb4f3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1026200915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2312,7 +2360,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1073561791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb2f5
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1073561791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2433,7 +2493,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1119656098}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb2f3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1119656098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2887,6 +2959,7 @@ RectTransform:
   - {fileID: 1639511472}
   - {fileID: 198059032}
   - {fileID: 1073561789}
+  - {fileID: 1645514973}
   m_Father: {fileID: 1933312318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3667,7 +3740,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1591240603}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb2f4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1591240603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3788,7 +3873,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1639511474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb4f4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1639511474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3909,7 +4006,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1639875477}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004027382}
+        m_TargetAssemblyTypeName: PlayerWindow, Assembly-CSharp
+        m_MethodName: ButtonCounterb3f4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1639875477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3947,6 +4056,140 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639875474}
+  m_CullTransparentMesh: 1
+--- !u!1 &1645514972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1645514973}
+  - component: {fileID: 1645514975}
+  - component: {fileID: 1645514974}
+  m_Layer: 5
+  m_Name: perkPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1645514973
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645514972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1277758201}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 299, y: 678}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1645514974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645514972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 12
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 169.1
+  m_fontSizeBase: 169.1
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: -74.58309, z: 0, w: -69.61074}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1645514975
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645514972}
   m_CullTransparentMesh: 1
 --- !u!1 &1799813021
 GameObject:
@@ -4198,7 +4441,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4262,17 +4505,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelArmory: {fileID: 1799813021}
   panelPerks: {fileID: 1277758200}
+  perkPoints: {fileID: 1645514974}
   btn1f1: {fileID: 1541915815}
   btn2f2: {fileID: 1504834294}
   btn1f2: {fileID: 1148204696}
   btn1f3: {fileID: 306527276}
   btn2f3: {fileID: 726993074}
   btn3f3: {fileID: 1170390377}
-  btn4f3: {fileID: 464183918}
+  btn4f3: {fileID: 542360167}
   btn1f4: {fileID: 313350063}
   btn2f4: {fileID: 2020335801}
   btn3f4: {fileID: 464183918}
   btn4f4: {fileID: 873835315}
+  btn1f5: {fileID: 2091961097}
+  btn2f5: {fileID: 837931687}
   b1f2: {fileID: 219652515}
   b2f2: {fileID: 2138038591}
   b1f3: {fileID: 1512206730}
@@ -4283,6 +4529,8 @@ MonoBehaviour:
   b2f4: {fileID: 1591240602}
   b3f4: {fileID: 1639875476}
   b4f4: {fileID: 1639511473}
+  b1f5: {fileID: 198059033}
+  b2f5: {fileID: 1073561790}
 --- !u!4 &2004027383
 Transform:
   m_ObjectHideFlags: 0
