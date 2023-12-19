@@ -18,6 +18,7 @@ public class Controlbatalla : MonoBehaviour
     public Text EndBatlleText;
     public GameObject EndBattlePanel;
     public GameObject Hero;
+    public GameObject Enemy;
     public Sprite BlockImageSprite;
     public Sprite CounterImageSprite;
     public Sprite HeavyImageSprite;
@@ -87,34 +88,56 @@ public class Controlbatalla : MonoBehaviour
             }
             else if (PlayerCard.CardType == "Slash" && (EnemyCard.CardType == "Counter" || EnemyCard.CardType == "Heavy"))
             {
+                if (EnemyCard.CardType=="Counter") 
+                {
+                    Enemy.GetComponent<Animator>().SetTrigger("CounterAttack");
+                }
+                if (EnemyCard.CardType == "Heavy")
+                {
+                    Enemy.GetComponent<Animator>().SetTrigger("HeavyAttack");
+                }
                 EnemyLife = EnemyLife - PlayerCard.CardDamage;
             }
             else if (PlayerCard.CardType == "Heavy" && EnemyCard.CardType == "Block")
             {
+                Enemy.GetComponent<Animator>().SetTrigger("BlockedAttack");
                 EnemyLife = EnemyLife - PlayerCard.CardDamage;
             }
             else if (PlayerCard.CardType == "Block" && EnemyCard.CardType == "Slash")
             {
+                Enemy.GetComponent<Animator>().SetTrigger("SlashAttack");
                 EnemyLife = EnemyLife - EnemyCard.CardDamage;
             }
             else if (PlayerCard.CardType == "Counter" && EnemyCard.CardType == "Heavy")
             {
+                Enemy.GetComponent<Animator>().SetTrigger("HeavyAttack");
                 EnemyLife = EnemyLife - EnemyCard.CardDamage;
             }
             else if (EnemyCard.CardType == "Slash" && (PlayerCard.CardType == "Counter" || PlayerCard.CardType == "Heavy"))
             {
+                if (EnemyCard.CardType == "Counter")
+                {
+                    Enemy.GetComponent<Animator>().SetTrigger("CounterAttack");
+                }
+                if (EnemyCard.CardType == "Heavy")
+                {
+                    Enemy.GetComponent<Animator>().SetTrigger("HeavyAttack");
+                }
                 PlayerLife = PlayerLife - EnemyCard.CardDamage;
             }
             else if (EnemyCard.CardType == "Heavy" && PlayerCard.CardType == "Block")
             {
+                Enemy.GetComponent<Animator>().SetTrigger("BlockedAttack");
                 PlayerLife = PlayerLife - EnemyCard.CardDamage;
             }
             else if (EnemyCard.CardType == "Block" && PlayerCard.CardType == "Slash")
             {
+                Enemy.GetComponent<Animator>().SetTrigger("SlashAttack");
                 PlayerLife = PlayerLife - PlayerCard.CardDamage;
             }
             else if (EnemyCard.CardType == "Counter" && PlayerCard.CardType == "Heavy")
             {
+                Enemy.GetComponent<Animator>().SetTrigger("HeavyAttack");
                 PlayerLife = PlayerLife - PlayerCard.CardDamage;
             }
             if (PlayerLife <= 0 || EnemyLife <= 0)
