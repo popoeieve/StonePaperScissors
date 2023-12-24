@@ -241,6 +241,37 @@ public class PlayerWindow : MonoBehaviour
         }
     }
 
+    public void createPlayer() 
+    {
+        PlayerPrefs.SetInt("Level", 1);
+        PlayerPrefs.SetInt("Health", 1);
+        PlayerPrefs.SetInt("Strength", 1);
+        PlayerPrefs.SetInt("Defense", 1);
+        PlayerPrefs.SetInt("Dextry", 1);
+        PlayerPrefs.SetInt("PlayerHealth", 1);
+        PlayerPrefs.SetInt("Charisma", 1);
+        PlayerPrefs.SetInt("Experience", 1);
+
+    }
+
+    public void updatePlayer(int experienceEarned) 
+    {
+        PlayerPrefs.SetInt("Experience", PlayerPrefs.GetInt("Experience")+experienceEarned);
+        PlayerPrefs.SetInt("BeyondLimits", int.Parse(btn1f1.text));
+        PlayerPrefs.SetInt("ExterminatusDeities", int.Parse(btn1f2.text));
+        PlayerPrefs.SetInt("SupremacyStrongest", int.Parse(btn1f3.text));
+        PlayerPrefs.SetInt("ExemplaryConcentration", int.Parse(btn1f4.text));
+        PlayerPrefs.SetInt("RecklessHero", int.Parse(btn1f5.text));
+        PlayerPrefs.SetInt("Tenacity", int.Parse(btn2f2.text));
+        PlayerPrefs.SetInt("Exasperation", int.Parse(btn2f3.text));
+        PlayerPrefs.SetInt("FallOfWeak", int.Parse(btn2f4.text));
+        PlayerPrefs.SetInt("TheOne", int.Parse(btn2f5.text));
+        PlayerPrefs.SetInt("UnrivalledDefense", int.Parse(btn3f3.text));
+        PlayerPrefs.SetInt("KnightInsight", int.Parse(btn3f4.text));
+        PlayerPrefs.SetInt("TheBeginingLegacy", int.Parse(btn4f3.text));
+        PlayerPrefs.SetInt("DiligenceUnknown", int.Parse(btn4f4.text));
+    }
+
 
 
 
