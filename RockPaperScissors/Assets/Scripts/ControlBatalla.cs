@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Controlbatalla : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Controlbatalla : MonoBehaviour
     public Card LastCardDrawed;
     public Text EndBatlleText;
     public GameObject EndBattlePanel;
+    public GameObject EndWinBattlePanel;
     public GameObject Hero;
     public GameObject Enemy;
     public Sprite BlockImageSprite;
@@ -24,7 +26,13 @@ public class Controlbatalla : MonoBehaviour
     public Sprite HeavyImageSprite;
     public Sprite SlashImageSprite;
     public float Timer;
-    public Image LifeBar; 
+    public Image LifeBar;
+    public Image ExpBar;
+    public TextMeshProUGUI currentExp;
+    public TextMeshProUGUI nextLevelExp;
+    public TextMeshProUGUI Level;
+    public TextMeshProUGUI expEarned;
+    bool endedBattle = false;
 
 
 
@@ -32,7 +40,9 @@ public class Controlbatalla : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Level.text = "Level: "+PlayerPrefs.GetInt("Level", 0).ToString();
+        currentExp.text= PlayerPrefs.GetInt("Experience", 0).ToString();
+        nextLevelExp.text= (PlayerPrefs.GetInt("Level", 0)*25+75).ToString();
         LastCardDrawed = null;
         CardDraw();
         CardDraw();
@@ -46,19 +56,20 @@ public class Controlbatalla : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerLifeCounter.text = PlayerLife+"";
-        EnemyLifeCounter.text = EnemyLife+"";
-        Timer += Time.deltaTime;
-        LifeBar.GetComponent<Image>().fillAmount = Timer/3.85f ;
-        if (Timer > 3.85)
+        PlayerLifeCounter.text = PlayerLife + "";
+        EnemyLifeCounter.text = EnemyLife + "";
+        if (!endedBattle) 
         {
-            Timer = 0;
-            TimeOver();
-            
-            
-            
+            Timer += Time.deltaTime;
+            LifeBar.GetComponent<Image>().fillAmount = Timer / 3.85f;
+            if (Timer > 3.85)
+            {
+                Timer = 0;
+                TimeOver();
+            }
         }
-}       
+        
+    }       
 
     void Combat(Card PlayerCard, Card EnemyCard,GameObject newCard)
     {
@@ -254,8 +265,7 @@ public class Controlbatalla : MonoBehaviour
 
     public void EndBattle()
     {
-        Debug.Log("d");
-        
+        endedBattle = true;
         if ( PlayerLife <= 0)
         {
             EndBatlleText.text = "LOSE";
@@ -263,8 +273,7 @@ public class Controlbatalla : MonoBehaviour
         }
         else if (EnemyLife <= 0)
         {
-            EndBattlePanel.SetActive(true);
-            EndBatlleText.text = "VICTORY";
+            EndWinBattlePanel.SetActive(true);
         }
 
         //Se crea un panel con mensaje que has ganado o perdido 

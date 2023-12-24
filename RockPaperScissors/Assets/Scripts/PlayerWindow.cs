@@ -18,6 +18,7 @@ public class PlayerWindow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        createPlayer();
         anim = panelPerks.GetComponent<Animation>();
     }
 
@@ -243,14 +244,14 @@ public class PlayerWindow : MonoBehaviour
 
     public void createPlayer() 
     {
-        PlayerPrefs.SetInt("Level", 1);
+        PlayerPrefs.SetInt("Level", 3);
         PlayerPrefs.SetInt("Health", 1);
         PlayerPrefs.SetInt("Strength", 1);
         PlayerPrefs.SetInt("Defense", 1);
         PlayerPrefs.SetInt("Dextry", 1);
         PlayerPrefs.SetInt("PlayerHealth", 1);
         PlayerPrefs.SetInt("Charisma", 1);
-        PlayerPrefs.SetInt("Experience", 1);
+        PlayerPrefs.SetInt("Experience", 20);
 
     }
 
