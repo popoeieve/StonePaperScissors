@@ -646,14 +646,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 346222109}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1559558706}
         m_TargetAssemblyTypeName: Controlbatalla, Assembly-CSharp
-        m_MethodName: ExitBattle
+        m_MethodName: ExitWonBattle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3288,6 +3288,7 @@ MonoBehaviour:
   Rock: {fileID: 1700739760}
   Paper: {fileID: 1384434739}
   Scissor: {fileID: 859438722}
+  WinExitButton: {fileID: 346222108}
   TiePanel: {fileID: 1672515712}
   PlayerLife: 0
   EnemyLife: 0

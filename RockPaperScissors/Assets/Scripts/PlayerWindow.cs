@@ -18,7 +18,10 @@ public class PlayerWindow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        createPlayer();
+        if (PlayerPrefs.GetInt("Level",1)==1)
+        {
+            createPlayer();
+        }
         anim = panelPerks.GetComponent<Animation>();
     }
 

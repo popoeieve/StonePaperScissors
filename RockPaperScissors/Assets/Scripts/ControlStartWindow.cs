@@ -13,6 +13,7 @@ public class ControlStartWindow : MonoBehaviour
     void Start()
     {
         anim = panelConf.GetComponent<Animation>();
+        PlayerPrefs.DeleteAll();
     }
 
     // Update is called once per frame

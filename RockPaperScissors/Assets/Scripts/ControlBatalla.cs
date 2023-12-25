@@ -7,7 +7,7 @@ using TMPro;
 
 public class Controlbatalla : MonoBehaviour
 {
-    public Button Rock, Paper, Scissor;
+    public Button Rock, Paper, Scissor, WinExitButton;
     public GameObject TiePanel;
     public int PlayerLife;
     public int EnemyLife;
@@ -34,6 +34,7 @@ public class Controlbatalla : MonoBehaviour
     public TextMeshProUGUI expEarned;
     bool endedBattle = false;
     bool wonBattle = false;
+    int wonExperience = 180;
 
 
 
@@ -51,6 +52,7 @@ public class Controlbatalla : MonoBehaviour
         CardDraw();
         PlayerLife = 20;
         EnemyLife = 5;
+        
     }
 
 
@@ -71,13 +73,38 @@ public class Controlbatalla : MonoBehaviour
         }
         if (wonBattle)
         {
-            int wonExperience = 20;
-            float ratioExpIni= PlayerPrefs.GetInt("Experience", 0) / (PlayerPrefs.GetInt("Level", 0) * 25 + 75);//si divides dos enteros lo redondea
-            //float ratioExpFinal = PlayerPrefs.GetInt("Experience", 0)+ wonExperience / PlayerPrefs.GetInt("Level", 0) * 25 + 75;
-            expEarned.text = wonExperience.ToString();
-            Timer += Time.deltaTime;
+            int currentExpInt = PlayerPrefs.GetInt("Experience", 0);
+            float playerExperienceFloat = PlayerPrefs.GetInt("Experience", 0);
+            float playerLevelUpFloat = PlayerPrefs.GetInt("Level", 0) * 25 + 75;
+            float ratioExpIni= playerExperienceFloat/ playerLevelUpFloat;
+            //float ratioExpFinal = playerExperienceFloat+ wonExperience /playerLevelUpFloat;
+            Timer += Time.deltaTime*(playerLevelUpFloat/2.7f);
             ExpBar.GetComponent<Image>().fillAmount= ratioExpIni;
-            Debug.Log("Tu nivel es "+ PlayerPrefs.GetInt("Level", 0)+ " tu experiencia inicial es de "+ PlayerPrefs.GetInt("Experience", 0) +" necesitas "+ (PlayerPrefs.GetInt("Level", 0) * 25 + 75) + " de exp para subir de nivel, el ratio es "+ ratioExpIni);
+            if (wonExperience>0 && Timer>1) 
+            {
+                wonExperience = wonExperience - 1;
+                currentExpInt = currentExpInt + 1;
+                Timer = 0;
+            }
+            expEarned.text = wonExperience.ToString();
+            currentExp.text = currentExpInt.ToString();
+            PlayerPrefs.SetInt("Experience", currentExpInt);
+            Debug.Log(PlayerPrefs.GetInt("Experience", 0));
+            if (ratioExpIni == 1) 
+            {
+                PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 0) + 1);
+                PlayerPrefs.SetInt("Experience", 0);
+                currentExpInt = 0;
+                currentExp.text = currentExpInt.ToString();
+                Level.text = PlayerPrefs.GetInt("Level", 0).ToString();
+                nextLevelExp.text = (PlayerPrefs.GetInt("Level", 0) * 25 + 75).ToString();
+            }
+            if(wonExperience==0)
+            {
+                WinExitButton.interactable = true; // Activa la interacción del botón
+                
+                Debug.Log("Se deberia encender el boton");
+            }
         }
 
     }       
@@ -293,6 +320,12 @@ public class Controlbatalla : MonoBehaviour
     }
     public void ExitBattle() 
     {
+        SceneManager.LoadScene("PlayerScene");
+
+    }
+    public void ExitWonBattle()
+    {
+        PlayerPrefs.SetInt("Experience", PlayerPrefs.GetInt("Experience") + wonExperience);
         SceneManager.LoadScene("PlayerScene");
 
     }
