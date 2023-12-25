@@ -33,6 +33,7 @@ public class Controlbatalla : MonoBehaviour
     public TextMeshProUGUI Level;
     public TextMeshProUGUI expEarned;
     bool endedBattle = false;
+    bool wonBattle = false;
 
 
 
@@ -49,7 +50,7 @@ public class Controlbatalla : MonoBehaviour
         CardDraw();
         CardDraw();
         PlayerLife = 20;
-        EnemyLife = 20;
+        EnemyLife = 5;
     }
 
 
@@ -68,7 +69,17 @@ public class Controlbatalla : MonoBehaviour
                 TimeOver();
             }
         }
-        
+        if (wonBattle)
+        {
+            int wonExperience = 20;
+            float ratioExpIni= PlayerPrefs.GetInt("Experience", 0) / (PlayerPrefs.GetInt("Level", 0) * 25 + 75);//si divides dos enteros lo redondea
+            //float ratioExpFinal = PlayerPrefs.GetInt("Experience", 0)+ wonExperience / PlayerPrefs.GetInt("Level", 0) * 25 + 75;
+            expEarned.text = wonExperience.ToString();
+            Timer += Time.deltaTime;
+            ExpBar.GetComponent<Image>().fillAmount= ratioExpIni;
+            Debug.Log("Tu nivel es "+ PlayerPrefs.GetInt("Level", 0)+ " tu experiencia inicial es de "+ PlayerPrefs.GetInt("Experience", 0) +" necesitas "+ (PlayerPrefs.GetInt("Level", 0) * 25 + 75) + " de exp para subir de nivel, el ratio es "+ ratioExpIni);
+        }
+
     }       
 
     void Combat(Card PlayerCard, Card EnemyCard,GameObject newCard)
@@ -265,15 +276,17 @@ public class Controlbatalla : MonoBehaviour
 
     public void EndBattle()
     {
-        endedBattle = true;
         if ( PlayerLife <= 0)
         {
+            endedBattle = true;
             EndBatlleText.text = "LOSE";
             EndBattlePanel.SetActive(true);
         }
         else if (EnemyLife <= 0)
         {
             EndWinBattlePanel.SetActive(true);
+            endedBattle = true;
+            wonBattle = true;
         }
 
         //Se crea un panel con mensaje que has ganado o perdido 
