@@ -50,9 +50,12 @@ public class Controlbatalla : MonoBehaviour
         CardDraw();
         CardDraw();
         CardDraw();
+        generateEnemy();
         PlayerLife = 20;
         EnemyLife = 5;
-        
+        generateRandomItem(20, 40);
+
+
     }
 
 
@@ -335,6 +338,106 @@ public class Controlbatalla : MonoBehaviour
         EndBattle(); 
     }
 
+    public void generateRandomItem(int itemLevel,int playerLevel)
+    {
+        int topRange = itemLevel + 10 + (playerLevel / 10);
+        int botRange = itemLevel - 10 - (playerLevel / 10);
+        int objectLevel = Random.Range(botRange, topRange);
+        int itemTypeGenerator = Random.Range(1, 101);
+        string itemType;
+        if (itemTypeGenerator < 25)
+        {
+            itemType = "armor";
+        }
+        else if (itemTypeGenerator < 50)
+        {
+            itemType = "weapon";
+        }
+        else if (itemTypeGenerator < 75)
+        {
+            itemType = "shield";
+        }
+        else 
+        {
+            itemType = "boots";
+        }
+
+        Debug.Log(itemType);
+
+        //return Item;
+
+
+        /*
+        HealthBonus = healthBonus;
+        Damage = damage;
+        StrengthBonus = strengthBonus;
+        DefenseBonus = defenseBonus;
+        DexterityBonus = dexterityBonus;
+        CharismaBonus = charismaBonus;
+        ExperienceBonus = experienceBonus;
+        SpecialAbility = specialAbility;
+        Price = price;
+        ItemType = itemType;
+        */
+    }
+
+    public Enemy generateEnemy() 
+    {
+        int playerLevel = PlayerPrefs.GetInt("Level");
+        int randomInt = Random.Range(1, 101);
+        if (randomInt < 60)
+        {
+            int topRange = playerLevel + 10+(playerLevel / 10);
+            int botRange = playerLevel - 10-(playerLevel / 10);
+            int normalEnemyLevel = Random.Range(botRange, topRange + 1); // El +1 es para incluir el límite superior
+            if (normalEnemyLevel < 2) 
+            {
+                normalEnemyLevel = 1;
+            }
+            int enemyStrength = Random.Range(normalEnemyLevel/5, normalEnemyLevel + 1);
+            int enemyDefense = normalEnemyLevel - enemyStrength;
+            int enemyHealth = normalEnemyLevel * Random.Range(7,10);
+            int enemyMoney = normalEnemyLevel * Random.Range(4,12);
+
+
+            Enemy randomEnemy = new Enemy(enemyHealth,enemyStrength,enemyDefense,normalEnemyLevel,enemyMoney);
+
+            return randomEnemy;
+        }
+        else if (randomInt < 85)
+        {
+            int topRange = playerLevel + 10 + (playerLevel / 8);
+            int botRange = playerLevel;
+            int normalEnemyLevel = Random.Range(botRange, topRange + 1); // El +1 es para incluir el límite superior
+            if (normalEnemyLevel < 2)
+            {
+                normalEnemyLevel = 1;
+            }
+            int enemyStrength = Random.Range(normalEnemyLevel / 5, normalEnemyLevel + 1);
+            int enemyDefense = normalEnemyLevel - enemyStrength;
+            int enemyHealth = normalEnemyLevel * Random.Range(10, 15);
+            int enemyMoney = normalEnemyLevel * Random.Range(9, 20);
+
+            Enemy randomEnemy = new Enemy(enemyHealth, enemyStrength, enemyDefense, normalEnemyLevel, enemyMoney);
+
+            return randomEnemy;
+        }
+        else if (randomInt < 99)
+        {
+            //enemigo legendario
+            Enemy randomEnemy = new Enemy();
+            return randomEnemy;
+        }
+        else 
+        {
+            //enemigo dios
+            Enemy randomEnemy = new Enemy();
+            return randomEnemy;
+        }
+
+
+    }
+
 }
 public class Card: MonoBehaviour
 {
@@ -346,3 +449,68 @@ public class Card: MonoBehaviour
         this.CardType = CardType_;
     }
 }
+
+public class Enemy 
+{
+    private int Health { get; set; }
+    private int Strength { get; set; }
+    private int Defense { get; set; }
+    private int Level { get; set; }
+    private string Ability { get; set; }
+    private Item Loot { get; set; }
+    private int Money { get; set; }
+
+    public Enemy()
+    {
+       
+    }
+    public Enemy(int health, int strength, int defense, int level, int money)
+    {
+        Health = health;
+        Strength = strength;
+        Defense = defense;
+        Level = level;
+        Money = money;
+    }
+
+    public Enemy(int health, int strength, int defense, int level, string ability, Item loot, int money)
+    {
+        Health = health;
+        Strength = strength;
+        Defense = defense;
+        Level = level;
+        Ability = ability;
+        Loot = loot;
+        Money = money;
+    }
+}
+
+public class Item
+{
+    private int HealthBonus { get; set; }
+    private int Damage { get; set; }
+    private int StrengthBonus { get; set; }
+    private int DefenseBonus { get; set; }
+    private int DexterityBonus { get; set; }
+    private int CharismaBonus { get; set; }
+    private int ExperienceBonus { get; set; }
+    private string SpecialAbility { get; set; }
+    private int Price { get; set; }
+    private string ItemType { get; set; }
+
+    public Item(int healthBonus,int damage, int strengthBonus, int defenseBonus, int dexterityBonus, int charismaBonus, int experienceBonus,string specialAbility, int price,string itemType)
+    {
+        HealthBonus = healthBonus;
+        Damage = damage;
+        StrengthBonus = strengthBonus;
+        DefenseBonus = defenseBonus;
+        DexterityBonus = dexterityBonus;
+        CharismaBonus = charismaBonus;
+        ExperienceBonus = experienceBonus;
+        SpecialAbility = specialAbility;
+        Price = price;
+        ItemType = itemType;
+    }
+}
+
+

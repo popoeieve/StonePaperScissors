@@ -252,7 +252,6 @@ public class PlayerWindow : MonoBehaviour
         PlayerPrefs.SetInt("Strength", 1);
         PlayerPrefs.SetInt("Defense", 1);
         PlayerPrefs.SetInt("Dextry", 1);
-        PlayerPrefs.SetInt("PlayerHealth", 1);
         PlayerPrefs.SetInt("Charisma", 1);
         PlayerPrefs.SetInt("Experience", 20);
 
