@@ -9,6 +9,7 @@ public class PlayerWindow : MonoBehaviour
 {
     public GameObject panelArmory;
     public GameObject panelPerks;
+    public GameObject panelStats;
     private Animation anim;
     public TextMeshProUGUI perkPoints;
     public Text btn1f1, btn2f2, btn1f2, btn1f3, btn2f3, btn3f3, btn4f3, btn1f4, btn2f4, btn3f4, btn4f4,btn1f5,btn2f5;
@@ -53,6 +54,16 @@ public class PlayerWindow : MonoBehaviour
     {
         panelArmory.GetComponent<Animation>().clip = panelArmory.GetComponent<Animation>().GetClip("leftPanelExit");
         panelArmory.GetComponent<Animation>().Play();
+    }
+
+    public void openStatsPanel()
+    {
+        panelStats.SetActive(true);
+    }
+
+    public void closeStatsPanel()
+    {
+        panelStats.SetActive(false);
     }
 
     public void openStartWindow() 
@@ -254,6 +265,7 @@ public class PlayerWindow : MonoBehaviour
         PlayerPrefs.SetInt("Dextry", 1);
         PlayerPrefs.SetInt("Charisma", 1);
         PlayerPrefs.SetInt("Experience", 20);
+        PlayerPrefs.SetInt("ExtraPoints", 0);
 
     }
 

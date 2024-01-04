@@ -97,6 +97,7 @@ public class Controlbatalla : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 0) + 1);
                 PlayerPrefs.SetInt("Experience", 0);
+                PlayerPrefs.SetInt("ExtraPoints", PlayerPrefs.GetInt("ExtraPoints") + 1);
                 currentExpInt = 0;
                 currentExp.text = currentExpInt.ToString();
                 Level.text = PlayerPrefs.GetInt("Level", 0).ToString();
