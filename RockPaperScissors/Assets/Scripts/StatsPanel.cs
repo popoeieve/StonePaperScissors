@@ -20,7 +20,12 @@ public class StatsPanel : MonoBehaviour
         Level.text = "Level: " + PlayerPrefs.GetInt("Level", 0).ToString();
         Experience.text = PlayerPrefs.GetInt("Experience", 0).ToString();
         NextLevel.text = (PlayerPrefs.GetInt("Level", 0) * 25 + 75).ToString();
-        AvaiablePoints.text = PlayerPrefs.GetInt("ExtraPoints", 0).ToString();
+        AvaiablePoints.text = PlayerPrefs.GetInt("ExtraStatPoints", 0).ToString();
+        Strength.text = PlayerPrefs.GetInt("Strength", 0).ToString();
+        Defense.text = PlayerPrefs.GetInt("Defense", 0).ToString();
+        Dextry.text = PlayerPrefs.GetInt("Dextry", 0).ToString();
+        Charisma.text = PlayerPrefs.GetInt("Charisma", 0).ToString();
+        Debug.Log("Se ha iniciado el panel");
     }
 
     // Update is called once per frame

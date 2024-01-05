@@ -80,7 +80,6 @@ public class Controlbatalla : MonoBehaviour
             float playerExperienceFloat = PlayerPrefs.GetInt("Experience", 0);
             float playerLevelUpFloat = PlayerPrefs.GetInt("Level", 0) * 25 + 75;
             float ratioExpIni= playerExperienceFloat/ playerLevelUpFloat;
-            //float ratioExpFinal = playerExperienceFloat+ wonExperience /playerLevelUpFloat;
             Timer += Time.deltaTime*(playerLevelUpFloat/2.7f);
             ExpBar.GetComponent<Image>().fillAmount= ratioExpIni;
             if (wonExperience>0 && Timer>1) 
@@ -93,11 +92,12 @@ public class Controlbatalla : MonoBehaviour
             currentExp.text = currentExpInt.ToString();
             PlayerPrefs.SetInt("Experience", currentExpInt);
             Debug.Log(PlayerPrefs.GetInt("Experience", 0));
-            if (ratioExpIni == 1) 
+            if (ratioExpIni == 1) //The character levels up
             {
                 PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 0) + 1);
                 PlayerPrefs.SetInt("Experience", 0);
-                PlayerPrefs.SetInt("ExtraPoints", PlayerPrefs.GetInt("ExtraPoints") + 1);
+                PlayerPrefs.SetInt("ExtraStatPoints", PlayerPrefs.GetInt("ExtraStatPoints") + 1);
+                PlayerPrefs.SetInt("ExtraPerkPoints", PlayerPrefs.GetInt("ExtraPerkPoints") + 1);
                 currentExpInt = 0;
                 currentExp.text = currentExpInt.ToString();
                 Level.text = PlayerPrefs.GetInt("Level", 0).ToString();
@@ -105,9 +105,7 @@ public class Controlbatalla : MonoBehaviour
             }
             if(wonExperience==0)
             {
-                WinExitButton.interactable = true; // Activa la interacción del botón
-                
-                Debug.Log("Se deberia encender el boton");
+                WinExitButton.interactable = true;               
             }
         }
 

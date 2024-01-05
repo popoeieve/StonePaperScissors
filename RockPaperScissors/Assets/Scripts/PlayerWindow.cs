@@ -24,6 +24,7 @@ public class PlayerWindow : MonoBehaviour
             createPlayer();
         }
         anim = panelPerks.GetComponent<Animation>();
+        perkPoints.text = PlayerPrefs.GetInt("ExtraPerkPoints", 0).ToString();
     }
 
     // Update is called once per frame
@@ -258,14 +259,18 @@ public class PlayerWindow : MonoBehaviour
 
     public void createPlayer() 
     {
-        PlayerPrefs.SetInt("Level", 3);
+        PlayerPrefs.SetInt("Level", 1);
         PlayerPrefs.SetInt("Health", 1);
         PlayerPrefs.SetInt("Strength", 1);
         PlayerPrefs.SetInt("Defense", 1);
         PlayerPrefs.SetInt("Dextry", 1);
         PlayerPrefs.SetInt("Charisma", 1);
         PlayerPrefs.SetInt("Experience", 20);
-        PlayerPrefs.SetInt("ExtraPoints", 0);
+        PlayerPrefs.SetInt("ExtraPerkPoints", 0);
+        PlayerPrefs.SetInt("ExtraStatPoints", 0);
+        PlayerPrefs.SetString("PlayerName", "Nombre");
+        PlayerPrefs.SetString("Stage", "Stage");
+
 
     }
 
