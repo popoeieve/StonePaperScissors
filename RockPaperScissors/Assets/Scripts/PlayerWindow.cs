@@ -76,13 +76,23 @@ public class PlayerWindow : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void perkSelected() 
+    {
+        PlayerPrefs.SetInt("ExtraPerkPoints", PlayerPrefs.GetInt("ExtraPerkPoints", 0) - 1);
+        perkPoints.text = PlayerPrefs.GetInt("ExtraPerkPoints", 0).ToString();
+    }
     public void ButtonCounter()
     {
         int contador = int.Parse(btn1f1.text);
-        if (contador < 5)
+        if (contador < 5) // Could be reduced------------------
         {            
-            contador++;
-            btn1f1.text = contador.ToString();
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0) 
+            {
+                contador++;
+                btn1f1.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5) 
         {
@@ -95,9 +105,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn1f2.text);
         if (contador < 5)
-        {
-            contador++;
-            btn1f2.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn1f2.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5)
         {
@@ -110,9 +124,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn2f2.text);
         if (contador < 5)
-        {
-            contador++;
-            btn2f2.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn2f2.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5)
         {
@@ -125,9 +143,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn1f3.text);
         if (contador < 5)
-        {
-            contador++;
-            btn1f3.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn1f3.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5)
         {
@@ -140,9 +162,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn2f3.text);
         if (contador < 5)
-        {
-            contador++;
-            btn2f3.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn2f3.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5)
         {
@@ -155,9 +181,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn1f4.text);
         if (contador < 5)
-        {
-            contador++;
-            btn1f4.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn1f4.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5)
         {
@@ -169,9 +199,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn2f4.text);
         if (contador < 5)
-        {
-            contador++;
-            btn2f4.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn2f4.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5)
         {
@@ -183,9 +217,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn1f5.text);
         if (contador < 5)
-        {
-            contador++;
-            btn1f5.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn1f5.text = contador.ToString();
+                perkSelected();
+            }
         }
     }
 
@@ -193,9 +231,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn3f3.text);
         if (contador < 5)
-        {
-            contador++;
-            btn3f3.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn3f3.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5)
         {
@@ -208,9 +250,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn4f3.text);
         if (contador < 5)
-        {
-            contador++;
-            btn4f3.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn4f3.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5)
         {
@@ -223,9 +269,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn3f4.text);
         if (contador < 5)
-        {
-            contador++;
-            btn3f4.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn3f4.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5)
         {
@@ -237,9 +287,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn4f4.text);
         if (contador < 5)
-        {
-            contador++;
-            btn4f4.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn4f4.text = contador.ToString();
+                perkSelected();
+            }
         }
         if (contador >= 5)
         {
@@ -251,9 +305,13 @@ public class PlayerWindow : MonoBehaviour
     {
         int contador = int.Parse(btn2f5.text);
         if (contador < 5)
-        {
-            contador++;
-            btn2f5.text = contador.ToString();
+        {            
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
+            {
+                contador++;
+                btn2f5.text = contador.ToString();
+                perkSelected();
+            }
         }
     }
 
@@ -266,8 +324,8 @@ public class PlayerWindow : MonoBehaviour
         PlayerPrefs.SetInt("Dextry", 1);
         PlayerPrefs.SetInt("Charisma", 1);
         PlayerPrefs.SetInt("Experience", 20);
-        PlayerPrefs.SetInt("ExtraPerkPoints", 0);
-        PlayerPrefs.SetInt("ExtraStatPoints", 0);
+        PlayerPrefs.SetInt("ExtraPerkPoints", 10);
+        PlayerPrefs.SetInt("ExtraStatPoints", 10);
         PlayerPrefs.SetString("PlayerName", "Nombre");
         PlayerPrefs.SetString("Stage", "Stage");
 

@@ -1859,6 +1859,10 @@ MonoBehaviour:
   Charisma: {fileID: 1471540366}
   Experience: {fileID: 1853649106}
   NextLevel: {fileID: 556708595}
+  MoreStrengthBtn: {fileID: 1775578721}
+  MoreDexBtn: {fileID: 1188258446}
+  MoreDefBtn: {fileID: 1724917914}
+  MoreCharBtn: {fileID: 1555595305}
 --- !u!1 &355180698
 GameObject:
   m_ObjectHideFlags: 0
@@ -4962,7 +4966,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1188258449}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 337268620}
+        m_TargetAssemblyTypeName: StatsPanel, Assembly-CSharp
+        m_MethodName: moreDex
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1188258449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6441,7 +6457,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1555595308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 337268620}
+        m_TargetAssemblyTypeName: StatsPanel, Assembly-CSharp
+        m_MethodName: moreChar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1555595308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7231,7 +7259,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1724917917}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 337268620}
+        m_TargetAssemblyTypeName: StatsPanel, Assembly-CSharp
+        m_MethodName: moreDef
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1724917917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7352,7 +7392,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1775578724}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 337268620}
+        m_TargetAssemblyTypeName: StatsPanel, Assembly-CSharp
+        m_MethodName: moreStrength
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1775578724
 MonoBehaviour:
   m_ObjectHideFlags: 0
