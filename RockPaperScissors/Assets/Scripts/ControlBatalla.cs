@@ -11,6 +11,7 @@ public class Controlbatalla : MonoBehaviour
     public GameObject TiePanel;
     public int PlayerLife;
     public int EnemyLife;
+    public int moneyDropped;
     public Image CardPanel;
     public GameObject CardPrefab;
     public Text PlayerLifeCounter;
@@ -26,15 +27,18 @@ public class Controlbatalla : MonoBehaviour
     public Sprite HeavyImageSprite;
     public Sprite SlashImageSprite;
     public float Timer;
+    public float CashTimer;
     public Image LifeBar;
     public Image ExpBar;
     public TextMeshProUGUI currentExp;
     public TextMeshProUGUI nextLevelExp;
     public TextMeshProUGUI Level;
     public TextMeshProUGUI expEarned;
+    public TextMeshProUGUI earnedCash;
     bool endedBattle = false;
     bool wonBattle = false;
     int wonExperience = 180;
+    Enemy randomEnemy;
 
 
 
@@ -50,7 +54,7 @@ public class Controlbatalla : MonoBehaviour
         CardDraw();
         CardDraw();
         CardDraw();
-        generateEnemy();
+        randomEnemy=generateEnemy();
         PlayerLife = 20;
         EnemyLife = 5;
         generateRandomItem(20, 40);
@@ -80,6 +84,8 @@ public class Controlbatalla : MonoBehaviour
             float playerExperienceFloat = PlayerPrefs.GetInt("Experience", 0);
             float playerLevelUpFloat = PlayerPrefs.GetInt("Level", 0) * 25 + 75;
             float ratioExpIni= playerExperienceFloat/ playerLevelUpFloat;
+            moneyDropped = randomEnemy.Money;
+            earnedCash.text = moneyDropped.ToString();
             Timer += Time.deltaTime*(playerLevelUpFloat/2.7f);
             ExpBar.GetComponent<Image>().fillAmount= ratioExpIni;
             if (wonExperience>0 && Timer>1) 
@@ -105,11 +111,13 @@ public class Controlbatalla : MonoBehaviour
             }
             if(wonExperience==0)
             {
-                WinExitButton.interactable = true;               
+                wonBattle = false;
+                WinExitButton.interactable = true;
+                PlayerPrefs.SetInt("Cash", PlayerPrefs.GetInt("Cash") + moneyDropped);
             }
         }
 
-    }       
+    }
 
     void Combat(Card PlayerCard, Card EnemyCard,GameObject newCard)
     {
@@ -386,6 +394,7 @@ public class Controlbatalla : MonoBehaviour
         int randomInt = Random.Range(1, 101);
         if (randomInt < 60)
         {
+            //regular enemy
             int topRange = playerLevel + 10+(playerLevel / 10);
             int botRange = playerLevel - 10-(playerLevel / 10);
             int normalEnemyLevel = Random.Range(botRange, topRange + 1); // El +1 es para incluir el límite superior
@@ -405,6 +414,7 @@ public class Controlbatalla : MonoBehaviour
         }
         else if (randomInt < 85)
         {
+            //uncommon enmy
             int topRange = playerLevel + 10 + (playerLevel / 8);
             int botRange = playerLevel;
             int normalEnemyLevel = Random.Range(botRange, topRange + 1); // El +1 es para incluir el límite superior
@@ -423,14 +433,40 @@ public class Controlbatalla : MonoBehaviour
         }
         else if (randomInt < 99)
         {
-            //enemigo legendario
-            Enemy randomEnemy = new Enemy();
+            //epic enemy PROCESSING
+            int topRange = playerLevel + 10 + (playerLevel / 8);
+            int botRange = playerLevel;
+            int normalEnemyLevel = Random.Range(botRange, topRange + 1); // El +1 es para incluir el límite superior
+            if (normalEnemyLevel < 2)
+            {
+                normalEnemyLevel = 1;
+            }
+            int enemyStrength = Random.Range(normalEnemyLevel / 5, normalEnemyLevel + 1);
+            int enemyDefense = normalEnemyLevel - enemyStrength;
+            int enemyHealth = normalEnemyLevel * Random.Range(10, 15);
+            int enemyMoney = normalEnemyLevel * Random.Range(9, 20);
+
+            Enemy randomEnemy = new Enemy(enemyHealth, enemyStrength, enemyDefense, normalEnemyLevel, enemyMoney);
+
             return randomEnemy;
         }
         else 
         {
-            //enemigo dios
-            Enemy randomEnemy = new Enemy();
+            //legenday enemy PROCESSING
+            int topRange = playerLevel + 10 + (playerLevel / 8);
+            int botRange = playerLevel;
+            int normalEnemyLevel = Random.Range(botRange, topRange + 1); // El +1 es para incluir el límite superior
+            if (normalEnemyLevel < 2)
+            {
+                normalEnemyLevel = 1;
+            }
+            int enemyStrength = Random.Range(normalEnemyLevel / 5, normalEnemyLevel + 1);
+            int enemyDefense = normalEnemyLevel - enemyStrength;
+            int enemyHealth = normalEnemyLevel * Random.Range(10, 15);
+            int enemyMoney = normalEnemyLevel * Random.Range(9, 20);
+
+            Enemy randomEnemy = new Enemy(enemyHealth, enemyStrength, enemyDefense, normalEnemyLevel, enemyMoney);
+
             return randomEnemy;
         }
 
@@ -457,7 +493,7 @@ public class Enemy
     private int Level { get; set; }
     private string Ability { get; set; }
     private Item Loot { get; set; }
-    private int Money { get; set; }
+    public int Money { get; set; }
 
     public Enemy()
     {

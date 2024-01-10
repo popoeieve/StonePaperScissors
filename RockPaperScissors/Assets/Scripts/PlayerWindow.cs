@@ -328,6 +328,7 @@ public class PlayerWindow : MonoBehaviour
         PlayerPrefs.SetInt("ExtraStatPoints", 10);
         PlayerPrefs.SetString("PlayerName", "Nombre");
         PlayerPrefs.SetString("Stage", "Stage");
+        PlayerPrefs.SetInt("Cash",100);
 
 
     }
