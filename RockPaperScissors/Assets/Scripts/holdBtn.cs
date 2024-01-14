@@ -8,11 +8,9 @@ using UnityEngine.UI;
 
 public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public GameObject PerkDescriptionPanel;
-    private GameObject instantiatedPanel; // Referencia al panel instanciado
     private bool estaMantenido = false;
     private float tiempoInicioPulsacion;
-    private float duracionClicLargo = 0.7f;
+    private float duracionClicLargo = 0.5f;
 
     void Start()
     {
@@ -44,15 +42,11 @@ public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         else
         {
             Debug.Log("Botón clicado (clic largo)");
-            instantiatedPanel = Instantiate(PerkDescriptionPanel, transform.position, Quaternion.identity);
         }
     }
 
     void Update()
     {
-        if (estaMantenido)
-        {
-            Debug.Log("Botón mantenido");
-        }
+
     }
 }
