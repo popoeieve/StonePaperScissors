@@ -19,10 +19,6 @@ public class PlayerWindow : MonoBehaviour
     public TextMeshProUGUI btn1f1, btn2f2, btn1f2, btn1f3, btn2f3, btn3f3, btn4f3, btn1f4, btn2f4, btn3f4, btn4f4,btn1f5,btn2f5;
     public Button b1f2,b2f2,b1f3,b2f3,b3f3,b4f3,b1f4,b2f4,b3f4,b4f4,b1f5,b2f5;
     public Button[] PerksBtn;
-    public bool estaMantenido=false;
-    private float tiempoInicioPulsacion;
-    private float duracionClicLargo = 1.0f; // Duración en segundos para considerar un clic largo
-
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +28,7 @@ public class PlayerWindow : MonoBehaviour
 
         foreach (Button btn in PerksBtn)
         {
-            holdBtn perkControllerHoldBtn = PerkController.GetComponent<holdBtn>();
             btn.gameObject.AddComponent<holdBtn>();
-            btn.AlgunaPropiedad = perkControllerHoldBtn.AlgunaPropiedad;
         }
         if (PlayerPrefs.GetInt("Level",1)==1)
         {

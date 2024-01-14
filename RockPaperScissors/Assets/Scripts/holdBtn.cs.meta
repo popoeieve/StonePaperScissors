@@ -3,7 +3,8 @@ guid: eed0d12103df91345b7029509d4462eb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PerkDescriptionPanel: {fileID: 7375183223066071340, guid: 93f48aa151858fc42bb91f797aa5e916, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
