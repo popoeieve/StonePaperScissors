@@ -11,10 +11,21 @@ public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private bool estaMantenido = false;
     private float tiempoInicioPulsacion;
     private float duracionClicLargo = 0.5f;
+    private GameObject panel;
 
     void Start()
     {
+        //Finding the panel
+        panel = GameObject.Find("Canvas/PerkPanel/DescriptionPerkPanel");
 
+        if (panel != null)
+        {
+            Debug.Log("Panel found");
+        }
+        else
+        {
+            Debug.LogError("Panel not found");
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -42,6 +53,7 @@ public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         else
         {
             Debug.Log("Botón clicado (clic largo)");
+            panel.SetActive(true);
         }
     }
 
