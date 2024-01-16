@@ -4,7 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - PerkDescriptionPanel: {fileID: 7375183223066071340, guid: 93f48aa151858fc42bb91f797aa5e916, type: 3}
+  - principalImage: {instanceID: 0}
+  - mask: {fileID: 21300000, guid: fd335905600595e4eabba1bcc95e8307, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
