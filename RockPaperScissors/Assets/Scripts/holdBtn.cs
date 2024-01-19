@@ -8,9 +8,10 @@ using UnityEngine.UI;
 
 public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    private float tiempoInicioPulsacion;
-    private float duracionClicLargo = 0.5f;
+    private float startClicking;
+    private float longClickTime = 0.5f;
     private GameObject panel;
+    int currentPerkLevel;
     private Dictionary<string, string> nameList = new Dictionary<string, string>
     {
         {"Perk1-1","Beyond the limits"},
@@ -76,16 +77,20 @@ public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        tiempoInicioPulsacion = Time.time;
+        startClicking = Time.time;
 
         Debug.Log("Has comenzado a pulsar");
+        Button boton = GetComponent<Button>();
+        TextMeshProUGUI textoDelBoton = boton.GetComponentInChildren<TextMeshProUGUI>();
+        currentPerkLevel = int.Parse(textoDelBoton.text);
+        Debug.Log("El nivel de la perk al iniciar la pulsación es de "+currentPerkLevel);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        float duracionPulsacion = Time.time - tiempoInicioPulsacion;
+        float duracionPulsacion = Time.time - startClicking;
 
-        if (duracionPulsacion < duracionClicLargo)
+        if (duracionPulsacion < longClickTime)
         {
             Debug.Log("Botón clicado (clic corto)");
 
@@ -105,6 +110,45 @@ public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             compImage.sprite= Resources.Load<Sprite>(imageList[nameBtn]);
             textoMesh2.text = nameList[nameBtn];
             textoMesh3.text = descriptionList[nameBtn];
+            StartCoroutine(ReformatPerkCount());
+        }
+    }
+
+    // Este método se llama para acceder al componente TextMeshProUGUI del botón
+    IEnumerator ReformatPerkCount()
+    {
+        Debug.Log("Empieza el retraso");
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("Termina el retraso");
+        // Obtén el componente Button del mismo GameObject al que se ha asignado este script
+        Button boton = GetComponent<Button>();
+
+        // Verifica si se encontró el componente Button
+        if (boton != null)
+        {
+            // Accede al componente TextMeshProUGUI del botón
+            TextMeshProUGUI buttonText = boton.GetComponentInChildren<TextMeshProUGUI>();
+
+            // Verifica si se encontró el componente TextMeshProUGUI y si el texto del boton sigue como en su estado original
+            if (buttonText != null && buttonText.text!=currentPerkLevel.ToString())
+            {
+                // Haz algo con el componente TextMeshProUGUI, por ejemplo, accede al texto                
+                PlayerPrefs.SetInt("ExtraPerkPoints", PlayerPrefs.GetInt("ExtraPerkPoints", 0) + 1);
+                buttonText.text = currentPerkLevel.ToString();
+                GameObject perkPointsAvaiable= GameObject.Find("Canvas/PerkPanel/perkPoints");
+                TextMeshProUGUI perkText = perkPointsAvaiable.GetComponent<TextMeshProUGUI>();
+                perkText.text = PlayerPrefs.GetInt("ExtraPerkPoints", 0).ToString();
+                Debug.Log("El nivel del perk al finalizar la pulsación es : "+buttonText.text);
+            }
+            else
+            {
+                Debug.LogError("No se encontró el componente TextMeshProUGUI en el botón o quedan 0 puntos");
+                
+            }
+        }
+        else
+        {
+            Debug.LogError("No se encontró el componente Button en el GameObject.");
         }
     }
 

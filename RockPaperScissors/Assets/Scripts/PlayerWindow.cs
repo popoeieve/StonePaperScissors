@@ -98,14 +98,14 @@ public class PlayerWindow : MonoBehaviour
         int contador = int.Parse(btn1f1.text);
         if (contador < 5) // Could be reduced------------------
         {            
-            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0) 
+            if (PlayerPrefs.GetInt("ExtraPerkPoints", 0) != 0)
             {
                 contador++;
                 btn1f1.text = contador.ToString();
                 perkSelected();
             }
         }
-        if (contador >= 5) 
+        if (contador >= 5)
         {
             b1f2.interactable = true;
             b2f2.interactable = true;
