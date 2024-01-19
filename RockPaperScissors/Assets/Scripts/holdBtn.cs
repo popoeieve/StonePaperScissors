@@ -6,10 +6,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class holdBtn : MonoBehaviour, IPointerDownHandler
 {
-    private float startClicking;
-    private float longClickTime = 0.5f;
+    private float longClickTime = 0.7f;
     private GameObject panel;
     int currentPerkLevel;
     private Dictionary<string, string> nameList = new Dictionary<string, string>
@@ -77,26 +76,20 @@ public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        startClicking = Time.time;
-
         Debug.Log("Has comenzado a pulsar");
         Button boton = GetComponent<Button>();
         TextMeshProUGUI textoDelBoton = boton.GetComponentInChildren<TextMeshProUGUI>();
         currentPerkLevel = int.Parse(textoDelBoton.text);
         Debug.Log("El nivel de la perk al iniciar la pulsación es de "+currentPerkLevel);
+        StartCoroutine(LongClick());
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    IEnumerator LongClick()
     {
-        float duracionPulsacion = Time.time - startClicking;
+        yield return new WaitForSeconds(longClickTime);
 
-        if (duracionPulsacion < longClickTime)
-        {
-            Debug.Log("Botón clicado (clic corto)");
-
-        }
-        else
-        {
+        if (Input.GetMouseButton(0))
+        { 
             Debug.Log("Botón clicado (clic largo)");
             panel.SetActive(true);
             Transform mask = panel.transform.GetChild(0);
@@ -107,10 +100,14 @@ public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             TextMeshProUGUI textoMesh2 = segundoHijo.GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI textoMesh3 = tercerHijo.GetComponent<TextMeshProUGUI>();
             string nameBtn = gameObject.name;
-            compImage.sprite= Resources.Load<Sprite>(imageList[nameBtn]);
+            compImage.sprite = Resources.Load<Sprite>(imageList[nameBtn]);
             textoMesh2.text = nameList[nameBtn];
             textoMesh3.text = descriptionList[nameBtn];
             StartCoroutine(ReformatPerkCount());
+        }
+        else
+        {
+            Debug.Log("Botón clicado (clic corto)");
         }
     }
 
@@ -118,7 +115,7 @@ public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     IEnumerator ReformatPerkCount()
     {
         Debug.Log("Empieza el retraso");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         Debug.Log("Termina el retraso");
         // Obtén el componente Button del mismo GameObject al que se ha asignado este script
         Button boton = GetComponent<Button>();
@@ -142,7 +139,7 @@ public class holdBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
             else
             {
-                Debug.LogError("No se encontró el componente TextMeshProUGUI en el botón o quedan 0 puntos");
+                Debug.Log("No se encontró el componente TextMeshProUGUI en el botón o quedan 0 puntos o no ha cambiado el valor");
                 
             }
         }
