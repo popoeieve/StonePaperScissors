@@ -22,10 +22,7 @@ public class PlayerWindow : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        // Obtén el componente holdBtn del objeto PerkController
-        
-
+    {    
         foreach (Button btn in PerksBtn)
         {
             btn.gameObject.AddComponent<holdBtn>();
@@ -36,6 +33,7 @@ public class PlayerWindow : MonoBehaviour
         }
         anim = panelPerks.GetComponent<Animation>();
         perkPoints.text = PlayerPrefs.GetInt("ExtraPerkPoints", 0).ToString();
+        ChargePerks();
     }
 
     // Update is called once per frame
@@ -54,6 +52,78 @@ public class PlayerWindow : MonoBehaviour
     {
         panelPerks.GetComponent<Animation>().clip = panelPerks.GetComponent<Animation>().GetClip("ConfPanelAnimExit");
         panelPerks.GetComponent<Animation>().Play();
+        updatePlayer();
+    }
+
+    void ChargePerks()
+    {
+        for (int i = 0; i < PerksBtn.Length; i++)
+        {            
+            string nameButton = PerksBtn[i].name;
+            if (nameButton == "Perk1-1")
+            {
+                btn1f1.text=PlayerPrefs.GetInt("BeyondLimits",0).ToString();
+            }
+            else if(nameButton == "Perk2-1")
+            {
+                if (PlayerPrefs.GetInt("ExterminatusDeities", 0) != 0)
+                {
+                    PerksBtn[i].interactable = true;
+                    Debug.Log("El botón es ahora interactable");
+                }
+                btn1f2.text = PlayerPrefs.GetInt("ExterminatusDeities", 0).ToString();                
+            }
+            else if (nameButton == "Perk2-2")
+            {
+                if (PlayerPrefs.GetInt("Tenacity", 0) != 0)
+                {
+                    PerksBtn[i].interactable = true;
+                    Debug.Log("El botón es ahora interactable");
+                }
+                btn2f2.text = PlayerPrefs.GetInt("Tenacity", 0).ToString();
+            }
+            else if (nameButton == "Perk1-3")
+            {
+                btn1f3.text = PlayerPrefs.GetInt("SupremacyStrongest", 0).ToString();
+            }
+            else if (nameButton == "Perk2-3")
+            {
+                btn2f3.text = PlayerPrefs.GetInt("Exasperation", 0).ToString();
+            }
+            else if (nameButton == "Perk3-3")
+            {
+                btn3f3.text = PlayerPrefs.GetInt("UnrivalledDefense", 0).ToString();
+            }
+            else if (nameButton == "Perk4-3")
+            {
+                btn4f3.text = PlayerPrefs.GetInt("TheBeginingLegacy", 0).ToString();
+            }
+            else if (nameButton == "Perk1-4")
+            {
+                btn1f4.text = PlayerPrefs.GetInt("ExemplaryConcentration", 0).ToString();
+            }
+            else if (nameButton == "Perk2-4")
+            {
+                btn2f4.text = PlayerPrefs.GetInt("FallOfWeak", 0).ToString();
+            }
+            else if (nameButton == "Perk3-4")
+            {
+                btn3f4.text = PlayerPrefs.GetInt("KnightInsight", 0).ToString();
+            }
+            else if (nameButton == "Perk4-4")
+            {
+                btn4f4.text = PlayerPrefs.GetInt("DiligenceUnknown", 0).ToString();
+            }
+            else if (nameButton == "Perk5-1")
+            {
+                btn1f5.text = PlayerPrefs.GetInt("RecklessHero", 0).ToString();
+            }
+            else if (nameButton == "Perk5-2")
+            {
+                btn2f5.text = PlayerPrefs.GetInt("TheOne", 0).ToString();
+            }                            
+        }
+        PlayerPrefs.Save();
     }
 
     public void openLeftPanel()
@@ -335,18 +405,18 @@ public class PlayerWindow : MonoBehaviour
         PlayerPrefs.SetInt("Dextry", 1);
         PlayerPrefs.SetInt("Charisma", 1);
         PlayerPrefs.SetInt("Experience", 20);
-        PlayerPrefs.SetInt("ExtraPerkPoints", 10);
+        PlayerPrefs.SetInt("ExtraPerkPoints", 25);
         PlayerPrefs.SetInt("ExtraStatPoints", 10);
         PlayerPrefs.SetString("PlayerName", "Nombre");
         PlayerPrefs.SetString("Stage", "Stage");
         PlayerPrefs.SetInt("Cash",100);
+        PlayerPrefs.Save();
 
 
     }
 
-    public void updatePlayer(int experienceEarned) 
+    public void updatePlayer() 
     {
-        PlayerPrefs.SetInt("Experience", PlayerPrefs.GetInt("Experience")+experienceEarned);
         PlayerPrefs.SetInt("BeyondLimits", int.Parse(btn1f1.text));
         PlayerPrefs.SetInt("ExterminatusDeities", int.Parse(btn1f2.text));
         PlayerPrefs.SetInt("SupremacyStrongest", int.Parse(btn1f3.text));
@@ -360,9 +430,7 @@ public class PlayerWindow : MonoBehaviour
         PlayerPrefs.SetInt("KnightInsight", int.Parse(btn3f4.text));
         PlayerPrefs.SetInt("TheBeginingLegacy", int.Parse(btn4f3.text));
         PlayerPrefs.SetInt("DiligenceUnknown", int.Parse(btn4f4.text));
+        PlayerPrefs.Save();
     }
-
-
-
 
 }
